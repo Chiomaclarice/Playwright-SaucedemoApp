@@ -1,6 +1,6 @@
 import { Locator } from "@playwright/test";
 
-export class loginPage {
+export class LoginPage {
   constructor(page) {
     this.page = page;
     this.username = page.locator("#user-name");
@@ -12,5 +12,8 @@ export class loginPage {
     await this.username.fill(username);
     await this.password.fill(password);
     await this.loginButton.click();
+  }
+  ErrorMessage() {
+    return this.page.locator("[data-test='error']");
   }
 }
